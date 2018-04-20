@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="OnlinerTestSuite1" verbose="1">
+	<test name="GroupDependencies">
+		<groups>
+			<group name="Test1">
+				<method
+					signature="by.htp.onlinerautomation.OnlinerAutomationTest.checkPerformersNumberByRegion()"
+					name="test1" class="by.htp.onlinerautomation.OnlinerAutomationTest" />				
+			</group>
+			<group name="Test2">
+				<method 
+				signature="by.htp.onlinerautomation.OnlinerAutomationTest.checkPerformersNumberByTypeOfService"
+				name="test2"
+				class="by.htp.onlinerautomation.OnlinerAutomationTest" />
+			</group>
+			<group name="Test3">
+				<method 
+				signature="by.htp.onlinerautomation.OnlinerAutomationTest.findPerformers()"
+				name="test2"
+				class="by.htp.onlinerautomation.OnlinerAutomationTest" />
+			</group>
+
+			<dependencies>
+				<group name="Test2" depends-on="Test2" />
+				<group name="Test3" depends-on="Test1 Test2" />
+			</dependencies>
+		</groups>
+		<packages>
+			<package name="by.htp.onlinerautomation.*" />
+		</packages>
+	</test>
+</suite>
